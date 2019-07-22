@@ -9,6 +9,7 @@ services:
     - "8125:8125/udp"
     - "8126:8126"
   jmxtrans:
+    image: dalongrong/jmxtrans
     build: 
       context: ./
       dockerfile: Dockerfile-jmxtrans
