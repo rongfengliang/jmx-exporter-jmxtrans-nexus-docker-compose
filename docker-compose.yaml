@@ -8,15 +8,27 @@ services:
     - "2023-2024:2023-2024"
     - "8125:8125/udp"
     - "8126:8126"
+  jmx-exporter:
+    image: dalongrong/jmx-expoter
+    build:
+      context: ./
+      dockerfile: Dockerfile-jmx
+    ports: 
+    - "9999:9999"
   jmxtrans:
     image: dalongrong/jmxtrans
     build: 
       context: ./
       dockerfile: Dockerfile-jmxtrans
-  app:
-    build: ./
-    image: dalongrong/java-jmx-openjdk
-    container_name: app
+  nexus:
+    image: sonatype/nexus3:3.17.0
+    container_name: nexus
     ports: 
-    - "8080:8080"
-    - "30384:30384"
+    - "8081:8081"
+    - "8099:8099"
+    - "8044:8044"
+    volumes: 
+    - "./nexus-data:/nexus-data"
+    - "./nexus/nexus.vmoptions:/opt/sonatype/nexus/bin/nexus.vmoptions"
+    - "./nexus/org.apache.karaf.features.cfg:/opt/sonatype/nexus/etc/karaf/org.apache.karaf.features.cfg"
+    - "./nexus/org.apache.karaf.management.cfg:/opt/sonatype/nexus/etc/karaf/org.apache.karaf.management.cfg"

@@ -1,7 +1,6 @@
 # openjdk with jmx for docker running
 
- use jmxtrans
-
+ use jmxtrans  && jmx-expoter for expose promethues metrics
 
 ## how to running
 
@@ -19,4 +18,19 @@ docker-compose build
 
 ```code
 docker-compose up -d
+```
+
+## view graphite && promethues metrics
+
+
+* graphite
+
+```code
+open http://hostip
+```
+
+* promehtues metrics
+
+```code
+open http://hostip:9999
 ```

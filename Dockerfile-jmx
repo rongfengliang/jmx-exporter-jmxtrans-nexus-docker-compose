@@ -1,0 +1,10 @@
+FROM openjdk:8u222-jdk
+LABEL AUTHOR="dalongrong"
+LABEL EMAIL="1141591465@qq.com"
+WORKDIR /
+COPY jmx_prometheus_httpserver-0.12.1-SNAPSHOT-jar-with-dependencies.jar /jmx_prometheus_httpserver-0.12.1-SNAPSHOT-jar-with-dependencies.jar
+COPY docker-entrypiont-jmx-exporter.sh /docker-entrypiont.sh
+COPY jmx-exporter.yaml /jmx-exporter.yaml
+RUN chmod +x /docker-entrypiont.sh
+EXPOSE  9999
+ENTRYPOINT [ "/docker-entrypiont.sh" ]

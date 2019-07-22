@@ -1,7 +1,9 @@
 {
   "servers": [{
-    "port": "30384",
-    "host": "app",
+    "port": "8044",
+    "host": "nexus",
+    "username" : "admin",
+    "password" : "dalong123",
     "numQueryThreads" : 4,
     "queries": [
       {

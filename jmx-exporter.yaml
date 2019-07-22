@@ -1,0 +1,7 @@
+startDelaySeconds: 0
+hostPort: nexus:8044
+ssl: false
+lowercaseOutputName: false
+lowercaseOutputLabelNames: false
+rules:
+- pattern: ".*"
